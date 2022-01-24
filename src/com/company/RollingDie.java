@@ -30,8 +30,11 @@ public class RollingDie {
      */
     public int[] getRolls(int numTosses)
     {
-
-        return {0,0};  // replace this
+        int[] rollArray = new int[numTosses];
+        for (int i = 0; i < numTosses; i ++){
+            rollArray[i] = toss();
+        }
+        return rollArray;
     }
 
 	/*Write the method getLongestRun that takes as its parameter a array of integer values
@@ -44,8 +47,20 @@ public class RollingDie {
 
     public int getBestRun(int[] values)
     {
+        int currLen = 0, lastVal = 0, longLen = -1;
 
-        return -1;  //replace this
+        for (int i = 0; i < values.length; i ++){
+            if (values[i] == lastVal){
+                currLen ++;
+                if (currLen > longLen && currLen >= 2){
+                    currLen = longLen;}}
+            else{
+                lastVal = values[i];
+                currLen = 1;}
+
+
+                }
+        return longLen;
     }
 
 

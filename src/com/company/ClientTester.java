@@ -31,8 +31,19 @@ public class ClientTester {
     // postcondition: list1 and list2 are not modified
 
     public static void prefixMerge(Client [] list1, Client [] list2, Client[] result){
+        int index1 = 0, index2 = 0;
         for (int i = 0; i < result.length; i ++){
-
+            if (list1[index1].compareClient(list2[index2]) < 0){
+                result[i] = list1[index1];
+                index1 ++;}
+            else if(list1[index1].compareClient(list2[index2]) > 0){
+                result[i] = list2[index2];
+                index2 ++;}
+            else{
+                result[i] = list1[index1];
+                index1 ++;
+                index2 ++;
+            }
 
         }
 
