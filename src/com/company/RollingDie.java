@@ -47,20 +47,22 @@ public class RollingDie {
 
     public int getBestRun(int[] values)
     {
-        int currLen = 0, lastVal = 0, longLen = -1;
+        int currLen = 0, longLen = -1, lastIndex = 0, longIndex = -1;
 
         for (int i = 0; i < values.length; i ++){
-            if (values[i] == lastVal){
+            if (values[i] == values[lastIndex]){
                 currLen ++;
                 if (currLen > longLen && currLen >= 2){
-                    currLen = longLen;}}
+                    longLen = currLen;
+                    longIndex = lastIndex;}}
             else{
-                lastVal = values[i];
-                currLen = 1;}
+                currLen = 1;
+                lastIndex = i;
+                }
 
 
                 }
-        return longLen;
+        return longIndex;
     }
 
 
